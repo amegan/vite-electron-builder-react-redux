@@ -8,7 +8,10 @@
     "strict": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "types": ["node"],
+    "types": [
+        "node",
+        "vitest/globals"
+    ],
     "baseUrl": ".",
     "paths": {
       "#preload": ["../preload/src/index"],
@@ -22,6 +25,6 @@
     "src/**/*.tsx",
     "types/**/*.d.ts",
     "../../types/**/*.d.ts"
-  ],
+, "src/redux/slices/counterSlice.spec.ts"  ],
   "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }

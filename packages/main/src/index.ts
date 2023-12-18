@@ -44,6 +44,20 @@ app
  * Install Vue.js or any other extension in development mode only.
  * Note: You must install `electron-devtools-installer` manually
  */
+// Install "React and Redux devtools"
+if (import.meta.env.DEV) {
+    app.whenReady()
+        .then(() => require('electron-devtools-installer'))
+        .then(({default: installExtension, REDUX_DEVTOOLS, REACT_DEVELOPER_TOOLS}) => {
+            installExtension([REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS], {
+                loadExtensionOptions: {
+                    allowFileAccess: true,
+                },
+            });},
+        )
+        .catch(e => console.error('Failed install extension:', e));
+}
+
 // if (import.meta.env.DEV) {
 //   app
 //     .whenReady()
